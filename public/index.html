@@ -1,0 +1,1870 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="description" content="Mercado Saavedra Fajardo - El mercado tradicional de Murcia. Productos frescos, calidad y tradición desde el corazón de la ciudad.">
+<title>Mercado Saavedra Fajardo · Murcia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --olive: #5C6B3A;
+    --olive-light: #8A9A5B;
+    --beige: #F5EFE0;
+    --beige-dark: #E8DCC8;
+    --cream: #FAF7F0;
+    --wood: #8B6914;
+    --wood-dark: #5C4508;
+    --terra: #C4703B;
+    --warm-white: #FFFDF8;
+    --charcoal: #2C2A25;
+    --text-muted: #7A7268;
+    --gold: #C9A84C;
+    --gold-light: #E8C96A;
+    --shadow: rgba(44,42,37,0.12);
+    --shadow-deep: rgba(44,42,37,0.25);
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    overflow-x: hidden;
+    max-width: 430px;
+    margin: 0 auto;
+  }
+
+  /* ============ NAV ============ */
+  nav {
+    position: fixed;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 430px;
+    z-index: 100;
+    background: rgba(250,247,240,0.92);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(139,105,20,0.15);
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  nav .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--wood-dark);
+    letter-spacing: 0.04em;
+    line-height: 1.2;
+  }
+  nav .logo span { color: var(--gold); }
+  .nav-menu {
+    display: flex;
+    gap: 16px;
+    list-style: none;
+  }
+  .nav-menu a {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-decoration: none;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .nav-menu a:hover { color: var(--wood); }
+
+  /* ============ HERO ============ */
+  .hero {
+    min-height: 100svh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    overflow: hidden;
+    padding-bottom: 48px;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(44,42,37,0.15) 0%,
+      rgba(44,42,37,0.0) 30%,
+      rgba(44,42,37,0.5) 65%,
+      rgba(44,42,37,0.85) 100%
+    );
+    z-index: 1;
+  }
+  .hero-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  .hero-placeholder {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #3a4a22 0%, #5C6B3A 40%, #8B6914 70%, #C4703B 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+  }
+  .hero-placeholder-icon {
+    font-size: 64px;
+    opacity: 0.4;
+  }
+  .hero-placeholder-text {
+    color: rgba(255,255,255,0.5);
+    font-size: 13px;
+    text-align: center;
+    font-family: 'DM Sans', sans-serif;
+  }
+  /* Hero exterior upload zone */
+  .hero-upload-zone {
+    position: absolute;
+    top: 70px;
+    right: 16px;
+    z-index: 10;
+    background: rgba(0,0,0,0.45);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 10px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .hero-upload-zone:hover { background: rgba(0,0,0,0.6); }
+  .hero-upload-zone span {
+    color: rgba(255,255,255,0.85);
+    font-size: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 0 24px;
+    width: 100%;
+  }
+  .hero-eyebrow {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 10px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.3s forwards;
+  }
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 6px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.5s forwards;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+  .hero-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.7s forwards;
+  }
+  .hero-horario {
+    display: inline-flex;
+    align-items: center;
+    gap: 18px;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(201,168,76,0.4);
+    border-radius: 100px;
+    padding: 12px 24px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.9s forwards;
+  }
+  .horario-item {
+    text-align: center;
+  }
+  .horario-label {
+    font-size: 8px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    display: block;
+    margin-bottom: 2px;
+  }
+  .horario-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    color: #fff;
+    font-weight: 600;
+  }
+  .horario-divider {
+    width: 1px;
+    height: 28px;
+    background: rgba(201,168,76,0.3);
+  }
+
+  @keyframes fadeUp {
+    from { opacity:0; transform: translateY(20px); }
+    to { opacity:1; transform: translateY(0); }
+  }
+
+  /* ============ SECTION BASE ============ */
+  section {
+    padding: 64px 20px;
+  }
+  .section-label {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--olive-light);
+    margin-bottom: 8px;
+    display: block;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--charcoal);
+    line-height: 1.15;
+    margin-bottom: 20px;
+  }
+  .section-title em {
+    font-style: italic;
+    color: var(--wood);
+  }
+  .section-body {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text-muted);
+  }
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ============ SOBRE EL MERCADO ============ */
+  .sobre {
+    background: var(--beige);
+    position: relative;
+    overflow: hidden;
+  }
+  .sobre::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    background: rgba(92,107,58,0.06);
+  }
+  .pilares {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 28px;
+  }
+  .pilar {
+    background: var(--warm-white);
+    border-radius: 14px;
+    padding: 16px;
+    border: 1px solid rgba(139,105,20,0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .pilar:active { transform: scale(0.97); }
+  .pilar-icon { font-size: 26px; margin-bottom: 8px; display: block; }
+  .pilar-name {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--charcoal);
+    letter-spacing: 0.02em;
+  }
+
+  /* ============ VALE 150€ ============ */
+  .vale-section {
+    background: linear-gradient(135deg, #2C1A04 0%, #4A2C0A 50%, #2C1A04 100%);
+    padding: 56px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .vale-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 30%, rgba(201,168,76,0.12) 0%, transparent 70%);
+  }
+  .vale-eyebrow {
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    display: block;
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 1;
+  }
+  .vale-congrats {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 32px;
+    position: relative;
+    z-index: 1;
+    font-style: italic;
+  }
+
+  /* Ticket card */
+  .ticket-card {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(201,168,76,0.3);
+    position: relative;
+    z-index: 1;
+    margin: 0 4px 28px;
+    animation: ticketGlow 3s ease-in-out infinite;
+  }
+  @keyframes ticketGlow {
+    0%, 100% { box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(201,168,76,0.3); }
+    50% { box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 0 2px rgba(201,168,76,0.6), 0 0 30px rgba(201,168,76,0.15); }
+  }
+
+  /* Ticket header strip */
+  .ticket-header {
+    background: linear-gradient(90deg, #8B2020 0%, #A0300C 50%, #8B2020 100%);
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+  }
+  .ticket-header::before {
+    content: '★ ★ ★ TICKET REGALO ★ ★ ★ TICKET REGALO ★ ★ ★';
+    position: absolute;
+    top: 3px; left: 0; right: 0;
+    font-size: 6px;
+    letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.35);
+    text-align: center;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .ticket-header-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--gold-light);
+    font-style: italic;
+    margin-top: 8px;
+  }
+  .ticket-header-qr {
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    margin-top: 8px;
+    flex-shrink: 0;
+  }
+
+  /* Ticket puesto strip */
+  .ticket-puesto-strip {
+    background: var(--terra);
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .ticket-puesto-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .ticket-puesto-city {
+    font-size: 12px;
+    color: rgba(255,255,255,0.8);
+    font-style: italic;
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  /* Uploaded photo zone */
+  .ticket-photo-zone {
+    position: relative;
+    min-height: 160px;
+    background: var(--beige-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    overflow: hidden;
+  }
+  .ticket-photo-zone img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    inset: 0;
+  }
+  .ticket-photo-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    z-index: 1;
+    padding: 20px;
+  }
+  .ticket-photo-placeholder .upload-icon {
+    font-size: 32px;
+    opacity: 0.5;
+  }
+  .ticket-photo-placeholder p {
+    font-size: 12px;
+    color: var(--text-muted);
+    text-align: center;
+    line-height: 1.4;
+  }
+  .ticket-photo-placeholder strong {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--wood);
+    margin-bottom: 4px;
+  }
+  .photo-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    opacity: 0;
+    transition: opacity 0.2s;
+    z-index: 2;
+  }
+  .ticket-photo-zone:hover .photo-overlay { opacity: 1; }
+  .photo-overlay span {
+    color: #fff;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* Ticket body */
+  .ticket-body {
+    padding: 20px 20px 16px;
+    text-align: center;
+    background: #fff;
+    position: relative;
+  }
+  .ticket-body::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -10px; right: -10px;
+    height: 1px;
+    background: repeating-linear-gradient(90deg, transparent 0, transparent 6px, #e0d8c8 6px, #e0d8c8 12px);
+  }
+  .ticket-vale-label {
+    font-size: 8px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .ticket-amount {
+    font-family: 'Playfair Display', serif;
+    font-size: 52px;
+    font-weight: 700;
+    color: var(--charcoal);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .ticket-amount span {
+    font-size: 28px;
+    color: var(--gold);
+    vertical-align: super;
+    font-weight: 400;
+  }
+  .ticket-condicion {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.4;
+    margin-bottom: 12px;
+  }
+  .ticket-footer {
+    border-top: 1px dashed #e0d8c8;
+    padding-top: 12px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    color: var(--text-muted);
+    font-style: italic;
+  }
+
+  /* Notch decorations */
+  .ticket-notches {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 4px;
+    margin: -1px 0;
+    background: linear-gradient(135deg, #2C1A04 0%, #4A2C0A 50%, #2C1A04 100%);
+    position: relative;
+    z-index: 2;
+  }
+  .notch {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2C1A04 0%, #3A2008 100%);
+    flex-shrink: 0;
+  }
+  .notch-line {
+    flex: 1;
+    height: 1px;
+    border-top: 1px dashed rgba(201,168,76,0.2);
+    margin: 0 4px;
+  }
+
+  /* Info box below ticket */
+  .vale-info-box {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 14px;
+    padding: 16px 18px;
+    text-align: left;
+    position: relative;
+    z-index: 1;
+  }
+  .vale-info-box p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.5;
+  }
+  .vale-info-box p strong {
+    color: var(--gold-light);
+  }
+  .vale-cond-label {
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 4px;
+  }
+  .vale-cond-text {
+    font-size: 11px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.5;
+  }
+
+  /* ============ PUESTOS ============ */
+  .puestos-section {
+    background: var(--warm-white);
+  }
+  .categoria-tabs {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    margin-bottom: 24px;
+    scrollbar-width: none;
+  }
+  .categoria-tabs::-webkit-scrollbar { display: none; }
+  .cat-tab {
+    flex-shrink: 0;
+    padding: 7px 14px;
+    border-radius: 100px;
+    border: 1px solid var(--beige-dark);
+    background: transparent;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-muted);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .cat-tab.active {
+    background: var(--olive);
+    border-color: var(--olive);
+    color: #fff;
+  }
+  .cat-tab:hover:not(.active) {
+    border-color: var(--olive-light);
+    color: var(--olive);
+  }
+
+  .categoria-group {
+    display: none;
+  }
+  .categoria-group.active {
+    display: block;
+    animation: fadeSlide 0.35s ease;
+  }
+  @keyframes fadeSlide {
+    from { opacity:0; transform: translateX(10px); }
+    to { opacity:1; transform: translateX(0); }
+  }
+
+  .cat-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .cat-icon { font-size: 22px; }
+  .cat-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--charcoal);
+  }
+
+  .puesto-card {
+    background: var(--beige);
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 12px;
+    border: 1px solid rgba(139,105,20,0.1);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .puesto-card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--olive);
+    border-radius: 3px 0 0 3px;
+  }
+  .puesto-card:active { transform: scale(0.98); box-shadow: 0 4px 20px var(--shadow); }
+  .puesto-card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  .puesto-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--charcoal);
+    line-height: 1.3;
+    flex: 1;
+  }
+  .puesto-location {
+    font-size: 10px;
+    color: var(--text-muted);
+    margin-top: 3px;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+  }
+  .puesto-expand-icon {
+    color: var(--olive-light);
+    font-size: 18px;
+    flex-shrink: 0;
+    transition: transform 0.3s;
+  }
+  .puesto-card.expanded .puesto-expand-icon {
+    transform: rotate(180deg);
+  }
+
+  /* Puesto image upload */
+  .puesto-img-zone {
+    height: 100px;
+    background: var(--beige-dark);
+    border-radius: 10px;
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    transition: background 0.2s;
+  }
+  .puesto-img-zone img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .puesto-img-zone-text {
+    font-size: 10px;
+    color: var(--text-muted);
+    font-weight: 500;
+    z-index: 1;
+  }
+  .puesto-img-zone-icon {
+    font-size: 20px;
+    opacity: 0.5;
+    z-index: 1;
+  }
+
+  /* Puesto detail (expanded) */
+  .puesto-detail {
+    display: none;
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(139,105,20,0.1);
+  }
+  .puesto-card.expanded .puesto-detail {
+    display: block;
+    animation: expandDetail 0.3s ease;
+  }
+  @keyframes expandDetail {
+    from { opacity:0; transform: translateY(-8px); }
+    to { opacity:1; transform: translateY(0); }
+  }
+  .puesto-contact-hint {
+    font-size: 10px;
+    color: var(--olive-light);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .contact-btns {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .btn-call {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: var(--olive);
+    color: #fff;
+    border-radius: 10px;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    transition: background 0.2s, transform 0.1s;
+  }
+  .btn-call:active { transform: scale(0.97); background: var(--wood); }
+  .btn-whatsapp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #25D366;
+    color: #fff;
+    border-radius: 10px;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    transition: background 0.2s, transform 0.1s;
+  }
+  .btn-whatsapp:active { transform: scale(0.97); background: #1aad54; }
+
+  /* ============ GALERÍA ============ */
+  .galeria-section {
+    background: var(--beige);
+  }
+  .galeria-filters {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    margin-bottom: 20px;
+    scrollbar-width: none;
+  }
+  .galeria-filters::-webkit-scrollbar { display: none; }
+  .gal-filter {
+    flex-shrink: 0;
+    padding: 6px 12px;
+    border-radius: 100px;
+    border: 1px solid var(--beige-dark);
+    background: transparent;
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .gal-filter.active {
+    background: var(--wood);
+    border-color: var(--wood);
+    color: #fff;
+  }
+  .gal-filter:hover:not(.active) { border-color: var(--wood); color: var(--wood); }
+
+  .galeria-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .gal-item {
+    aspect-ratio: 1;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    background: var(--beige-dark);
+    transition: transform 0.2s;
+  }
+  .gal-item:active { transform: scale(0.97); }
+  .gal-item.hidden { display: none; }
+  .gal-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+  .gal-item:hover img { transform: scale(1.05); }
+  .gal-item-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 50%);
+    display: flex;
+    align-items: flex-end;
+    padding: 10px;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .gal-item:hover .gal-item-overlay { opacity: 1; }
+  .gal-item-label {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+  }
+  /* Gallery placeholder */
+  .gal-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: 6px;
+    padding: 12px;
+  }
+  .gal-placeholder-icon { font-size: 28px; opacity: 0.35; }
+  .gal-placeholder-cat {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-align: center;
+  }
+  /* Lightbox */
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: rgba(0,0,0,0.92);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    backdrop-filter: blur(4px);
+  }
+  .lightbox.open {
+    display: flex;
+    animation: lbFadeIn 0.2s ease;
+  }
+  @keyframes lbFadeIn {
+    from { opacity:0; } to { opacity:1; }
+  }
+  .lightbox-img {
+    max-width: 100%;
+    max-height: 80svh;
+    border-radius: 12px;
+    object-fit: contain;
+  }
+  .lightbox-close {
+    position: absolute;
+    top: 16px; right: 16px;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+    backdrop-filter: blur(8px);
+  }
+  .lightbox-caption {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  /* ============ UBICACIÓN ============ */
+  .ubicacion-section {
+    background: var(--warm-white);
+  }
+  .map-container {
+    border-radius: 16px;
+    overflow: hidden;
+    height: 220px;
+    margin-top: 20px;
+    box-shadow: 0 4px 20px var(--shadow);
+    position: relative;
+  }
+  .map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  .map-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 14px;
+    background: var(--olive);
+    color: #fff;
+    border-radius: 12px;
+    padding: 14px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    transition: background 0.2s;
+  }
+  .map-cta:active { background: var(--wood); }
+
+  /* ============ REDES ============ */
+  .redes-section {
+    background: var(--beige);
+    text-align: center;
+  }
+  .redes-btns {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 24px;
+  }
+  .btn-red {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 20px;
+    border-radius: 14px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    flex: 1;
+    justify-content: center;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .btn-red:active { transform: scale(0.96); }
+  .btn-instagram {
+    background: linear-gradient(135deg, #833AB4 0%, #C13584 40%, #E1306C 70%, #F77737 100%);
+    color: #fff;
+    box-shadow: 0 4px 16px rgba(193,53,132,0.3);
+  }
+  .btn-facebook {
+    background: #1877F2;
+    color: #fff;
+    box-shadow: 0 4px 16px rgba(24,119,242,0.3);
+  }
+  .btn-red svg { width: 20px; height: 20px; }
+
+  /* ============ FOOTER ============ */
+  footer {
+    background: var(--charcoal);
+    padding: 40px 20px 32px;
+    text-align: center;
+  }
+  footer .logo-footer {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--gold-light);
+    letter-spacing: 0.04em;
+    margin-bottom: 8px;
+  }
+  footer .footer-sub {
+    font-size: 11px;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  footer .footer-horario {
+    font-size: 12px;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 20px;
+  }
+  footer .footer-copy {
+    font-size: 10px;
+    color: rgba(255,255,255,0.2);
+    letter-spacing: 0.06em;
+  }
+  .footer-divider {
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+    margin: 16px auto;
+    opacity: 0.3;
+  }
+
+  /* ============ DIVIDERS ============ */
+  .ornament {
+    text-align: center;
+    color: var(--gold);
+    font-size: 14px;
+    letter-spacing: 0.2em;
+    margin: 8px 0 0;
+    opacity: 0.5;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Mercado<br><span>Saavedra Fajardo</span></div>
+  <ul class="nav-menu">
+    <li><a href="#puestos">Puestos</a></li>
+    <li><a href="#vale">Vale</a></li>
+    <li><a href="#galeria">Galería</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <img id="heroImg" class="hero-img" src="/images/hero.jpg" alt="Mercado Saavedra Fajardo">
+  <div class="hero-bg"></div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">Murcia, España · Desde 1959</div>
+    <div class="hero-title">Mercado<br><em>Saavedra Fajardo</em></div>
+    <div class="hero-subtitle">El sabor de siempre, hecho de cerca</div>
+    <div class="hero-horario">
+      <div class="horario-item">
+        <span class="horario-label">Días</span>
+        <span class="horario-value">Lun – Sáb</span>
+      </div>
+      <div class="horario-divider"></div>
+      <div class="horario-item">
+        <span class="horario-label">Horario</span>
+        <span class="horario-value">8:00 – 15:00</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALE 150€ — segunda sección -->
+<section class="vale-section" id="vale">
+  <div class="vale-eyebrow">Vale Regalo</div>
+  <div class="vale-congrats">¡Enhorabuena!</div>
+
+  <!-- TICKET CARD -->
+  <div class="ticket-card">
+    <!-- Header rojo con título -->
+    <div class="ticket-header">
+      <div class="ticket-header-title">TICKET REGALO</div>
+      <div class="ticket-header-qr">🏪</div>
+    </div>
+
+    <!-- Franja de puesto (naranja/terra) -->
+    <div class="ticket-puesto-strip">
+      <span class="ticket-puesto-name">Mercado Saavedra Fajardo</span>
+      <span class="ticket-puesto-city">Murcia</span>
+    </div>
+
+    <!-- Zona foto subible -->
+    <div class="ticket-photo-zone" id="ticketPhotoZone">
+      <img src="/images/ticket.jpg" alt="Foto del vale" style="width:100%;height:100%;object-fit:cover;">
+      <div class="photo-overlay">
+        <span>📷 Cambiar foto</span>
+      </div>
+    </div>
+
+
+    <!-- Notches decorativos -->
+    <div class="ticket-notches">
+      <div class="notch"></div>
+      <div class="notch-line"></div>
+      <div class="notch"></div>
+    </div>
+
+    <!-- Cuerpo del ticket -->
+    <div class="ticket-body">
+      <span class="ticket-vale-label">Vale Regalo</span>
+      <div class="ticket-amount">150<span>€</span></div>
+      <p class="ticket-condicion">Para gastar en una única compra<br>en el Mercado Saavedra Fajardo</p>
+      <div class="ticket-footer">Mercado Saavedra Fajardo · Murcia</div>
+    </div>
+  </div>
+
+  <!-- Info box -->
+  <div class="vale-info-box">
+    <p>Has ganado un vale de <strong>150€</strong> para gastar en el Mercado Saavedra Fajardo.</p>
+    <span class="vale-cond-label">Condiciones</span>
+    <p class="vale-cond-text">Este vale debe gastarse en una sola compra. No se puede dividir en varios usos ni acumular parcialmente. Válido en cualquier puesto del mercado.</p>
+  </div>
+</section>
+
+<!-- SOBRE EL MERCADO -->
+<section class="sobre fade-in" id="sobre">
+  <span class="section-label">Nuestro mercado</span>
+  <h2 class="section-title">Tradición y calidad<br>en el <em>corazón de Murcia</em></h2>
+  <div class="ornament">— ✦ —</div>
+  <p class="section-body" style="margin-top:16px;">
+    El Mercado Saavedra Fajardo es uno de los mercados más queridos de Murcia. Aquí encontrarás productos frescos de primera calidad, atendidos por profesionales expertos, cercanos y con años de experiencia tras el mostrador.
+  </p>
+  <div class="pilares">
+    <div class="pilar fade-in">
+      <span class="pilar-icon">🐟</span>
+      <div class="pilar-name">Pescadería</div>
+    </div>
+    <div class="pilar fade-in">
+      <span class="pilar-icon">🥩</span>
+      <div class="pilar-name">Carnicería</div>
+    </div>
+    <div class="pilar fade-in">
+      <span class="pilar-icon">🧀</span>
+      <div class="pilar-name">Charcutería</div>
+    </div>
+    <div class="pilar fade-in">
+      <span class="pilar-icon">🍎</span>
+      <div class="pilar-name">Frutería</div>
+    </div>
+    <div class="pilar fade-in">
+      <span class="pilar-icon">🍰</span>
+      <div class="pilar-name">Dulce / Salado</div>
+    </div>
+    <div class="pilar fade-in">
+      <span class="pilar-icon">☕</span>
+      <div class="pilar-name">Cantina</div>
+    </div>
+  </div>
+</section>
+
+<!-- PUESTOS -->
+<section class="puestos-section fade-in" id="puestos">
+  <span class="section-label">Directorio</span>
+  <h2 class="section-title">Nuestros <em>Puestos</em></h2>
+
+  <div class="categoria-tabs">
+    <button class="cat-tab active" data-cat="pescaderia">🐟 Pescadería</button>
+    <button class="cat-tab" data-cat="carniceria">🥩 Carnicería</button>
+    <button class="cat-tab" data-cat="charcuteria">🧀 Charcutería</button>
+    <button class="cat-tab" data-cat="fruteria">🍎 Frutería</button>
+    <button class="cat-tab" data-cat="dulce">🍰 Dulce/Salado</button>
+    <button class="cat-tab" data-cat="cantina">☕ Cantina</button>
+  </div>
+
+  <!-- PESCADERÍA -->
+  <div class="categoria-group active" id="cat-pescaderia">
+    <div class="cat-header">
+      <span class="cat-icon">🐟</span>
+      <span class="cat-name">Pescadería</span>
+    </div>
+    <div class="puesto-card" onclick="togglePuesto(this)">
+      <div class="puesto-card-header">
+        <div>
+          <div class="puesto-name">Pescados y Mariscos Juan</div>
+          <div class="puesto-location">📍 1ª Planta</div>
+        </div>
+        <span class="puesto-expand-icon">⌄</span>
+      </div>
+      <div class="puesto-img-zone">
+        <img src="/images/puestos/juan-pescado.jpg" alt="Foto del puesto" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <div class="puesto-detail">
+        <div class="puesto-contact-hint">📞 Pulsa para contactar</div>
+        <div class="contact-btns">
+          <a href="tel:968239807" class="btn-call">📞 968 239 807</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="puesto-card" onclick="togglePuesto(this)">
+      <div class="puesto-card-header">
+        <div>
+          <div class="puesto-name">La Lonja de Mari</div>
+          <div class="puesto-location">📍 1ª Planta</div>
+        </div>
+        <span class="puesto-expand-icon">⌄</span>
+      </div>
+      <div class="puesto-img-zone">
+        <img src="/images/puestos/lonja-mari.jpg" alt="Foto del puesto" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <div class="puesto-detail">
+        <div class="puesto-contact-hint">📞 Pulsa para contactar</div>
+        <div class="contact-btns">
+          <a href="tel:603645627" class="btn-call">📞 603 645 627</a>
+          <a href="https://wa.me/34603645627" class="btn-whatsapp" target="_blank">💬 WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="puesto-card" onclick="togglePuesto(this)">
+      <div class="puesto-card-header">
+        <div>
+          <div class="puesto-name">Marea Seafood · Mariano Blaya</div>
+          <div class="puesto-location">📍 1ª Planta</div>
+        </div>
+        <span class="puesto-expand-icon">⌄</span>
+      </div>
+      <div class="puesto-img-zone">
+        <img src="/images/puestos/marea-seafood.jpg" alt="Foto del puesto" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <div class="puesto-detail">
+        <div class="puesto-contact-hint">📞 Pulsa para contactar</div>
+        <div class="contact-btns">
+          <a href="tel:615427545" class="btn-call">📞 615 427 545</a>
+          <a href="https://wa.me/34615427545" class="btn-whatsapp" target="_blank">💬 WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="puesto-card" onclick="togglePuesto(this)">
+      <div class="puesto-card-header">
+        <div>
+          <div class="puesto-name">Salazones Aguado</div>
+          <div class="puesto-location">📍 1ª Planta</div>
+        </div>
+        <span class="puesto-expand-icon">⌄</span>
+      </div>
+      <div class="puesto-img-zone">
+        <img src="/images/puestos/salazones-aguado.jpg" alt="Foto del puesto" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <div class="puesto-detail">
+        <div class="puesto-contact-hint">📞 Pulsa para contactar</div>
+        <div class="contact-btns">
+          <a href="tel:968246155" class="btn-call">📞 968 246 155</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CARNICERÍA -->
+  <div class="categoria-group" id="cat-carniceria">
+    <div class="cat-header">
+      <span class="cat-icon">🥩</span>
+      <span class="cat-name">Carnicería</span>
+    </div>
+
+    <div class="puesto-card" onclick="togglePuesto(this)">
+      <div class="puesto-card-header">
+        <div>
+          <div class="puesto-name">Carnicería José Ángel</div>
+          <div class="puesto-location">📍 Planta Baja</div>
+        </div>
+        <span class="puesto-expand-icon">⌄</span>
+      </div>
+      <div class="puesto-img-zone">
+        <img src="/images/puestos/jose-angel.jpg" alt="Foto del puesto" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <div class="puesto-detail">
+        <div class="puesto-contact-hint">📞 Pulsa para contactar</div>
+        <div class="contact-btns">
+          <a href="tel:968242064" class="btn-call">📞 968 242 064</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="puesto-card" onclick="togglePuesto(this)">
+      <div class="puesto-card-header">
+        <div>
+          <div class="puesto-name">Carnicería Paco</div>
+          <div class="puesto-location">📍 Planta Baja</div>
+        </div>
+        <span class="puesto-expand-icon">⌄</span>
+      </div>
+      <div class="puesto-img-zone">
+        <img src="/images/puestos/carn-paco.jpg" alt="Foto del puesto" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <div class="puesto-detail">
+        <div class="puesto-contact-hint">📞 Pulsa para contactar</div>
+        <div class="contact-btns">
+          <a href="tel:663219390" class="btn-call">📞 663 219 390</a>
+          <a href="https://wa.me/34663219390" class="btn-whatsapp" target="_blank">💬 WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="puesto-card" onclick="togglePuesto(this)">
+      <div class="puesto-card-header">
+        <div>
+          <div class="puesto-name">Carn. Miguel y Paco Muñoz C.B.</div>
+          <div class="puesto-location">📍 Planta Baja</div>
+        </div>
+        <span class="puesto-expand-icon">⌄</span>
+      </div>
+      <div class="puesto-img-zone">
+        <img src="/images/puestos/munoz-carn.jpg" alt="Foto del puesto" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <div class="puesto-detail">
+        <div class="puesto-contact-hint">📞 Pulsa para contactar</div>
+        <div class="contact-btns">
+          <a href="tel:968239227" class="btn-call">📞 968 239 227</a>
+          <a href="tel:669464642" class="btn-call">📞 669 464 642</a>
+          <a href="https://wa.me/34669464642" class="btn-whatsapp" target="_blank">💬 WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="puesto-card" onclick="togglePuesto(this)">
+      <div class="puesto-card-header">
+        <div>
+          <div class="puesto-name">Carn. Juan José Rosa Pérez</div>
+          <div class="puesto-location">📍 Planta Baja</div>
+        </div>
+        <span class="puesto-expand-icon">⌄</span>
+      </div>
+      <div class="puesto-img-zone">
+        <img src="/images/puestos/juan-jose-rosa.jpg" alt="Foto del puesto" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <div class="puesto-detail">
+        <div class="puesto-contact-hint">📞 Pulsa para contactar</div>
+        <div class="contact-btns">
+          <a href="tel:968245209" class="btn-call">📞 968 245 209</a>
+          <a href="tel:630325550" class="btn-call">📞 630 325 550</a>
+          <a href="https://wa.me/34630325550" class="btn-whatsapp" target="_blank">💬 WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHARCUTERÍA -->
+  <div class="categoria-group" id="cat-charcuteria">
+    <div class="cat-header">
+      <span class="cat-icon">🧀</span>
+      <span class="cat-name">Charcutería</span>
+    </div>
+
+    <div class="puesto-card" onclick="togglePuesto(this)">
+      <div class="puesto-card-header">
+        <div>
+          <div class="puesto-name">Charcutería Bernabé</div>
+          <div class="puesto-location">📍 Planta Baja</div>
+        </div>
+        <span class="puesto-expand-icon">⌄</span>
+      </div>
+      <div class="puesto-img-zone">
+        <img src="/images/puestos/bernabe.jpg" alt="Foto del puesto" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <div class="puesto-detail">
+        <div class="puesto-contact-hint">📞 Pulsa para contactar</div>
+        <div class="contact-btns">
+          <a href="tel:615051207" class="btn-call">📞 615 051 207</a>
+          <a href="tel:651432495" class="btn-call">📞 651 432 495</a>
+          <a href="https://wa.me/34651432495" class="btn-whatsapp" target="_blank">💬 WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="puesto-card" onclick="togglePuesto(this)">
+      <div class="puesto-card-header">
+        <div>
+          <div class="puesto-name">Quesos Pepe Madrigal</div>
+          <div class="puesto-location">📍 Planta Baja</div>
+        </div>
+        <span class="puesto-expand-icon">⌄</span>
+      </div>
+      <div class="puesto-img-zone">
+        <img src="/images/puestos/pepe-madrigal.jpg" alt="Foto del puesto" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <div class="puesto-detail">
+        <div class="puesto-contact-hint">📞 Pulsa para contactar</div>
+        <div class="contact-btns">
+          <a href="tel:968234115" class="btn-call">📞 968 234 115</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="puesto-card" onclick="togglePuesto(this)">
+      <div class="puesto-card-header">
+        <div>
+          <div class="puesto-name">Charc. Miguel y Paco Muñoz C.B.</div>
+          <div class="puesto-location">📍 Planta Baja</div>
+        </div>
+        <span class="puesto-expand-icon">⌄</span>
+      </div>
+      <div class="puesto-img-zone">
+        <img src="/images/puestos/munoz-charc.jpg" alt="Foto del puesto" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <div class="puesto-detail">
+        <div class="puesto-contact-hint">📞 Pulsa para contactar</div>
+        <div class="contact-btns">
+          <a href="tel:968239227" class="btn-call">📞 968 239 227</a>
+          <a href="tel:669464642" class="btn-call">📞 669 464 642</a>
+          <a href="https://wa.me/34669464642" class="btn-whatsapp" target="_blank">💬 WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FRUTERÍA -->
+  <div class="categoria-group" id="cat-fruteria">
+    <div class="cat-header">
+      <span class="cat-icon">🍎</span>
+      <span class="cat-name">Frutería</span>
+    </div>
+
+    <div class="puesto-card" onclick="togglePuesto(this)">
+      <div class="puesto-card-header">
+        <div>
+          <div class="puesto-name">Frutería Lidia</div>
+          <div class="puesto-location">📍 Planta Baja</div>
+        </div>
+        <span class="puesto-expand-icon">⌄</span>
+      </div>
+      <div class="puesto-img-zone">
+        <img src="/images/puestos/fruteria-lidia.jpg" alt="Foto del puesto" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <div class="puesto-detail">
+        <div class="puesto-contact-hint">📞 Pulsa para contactar</div>
+        <div class="contact-btns">
+          <a href="tel:968239514" class="btn-call">📞 968 239 514</a>
+          <a href="tel:625409192" class="btn-call">📞 625 409 192</a>
+          <a href="https://wa.me/34625409192" class="btn-whatsapp" target="_blank">💬 WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="puesto-card" onclick="togglePuesto(this)">
+      <div class="puesto-card-header">
+        <div>
+          <div class="puesto-name">La Frutería Saavedra</div>
+          <div class="puesto-location">📍 Planta Baja</div>
+        </div>
+        <span class="puesto-expand-icon">⌄</span>
+      </div>
+      <div class="puesto-img-zone">
+        <img src="/images/puestos/fruteria-saavedra.jpg" alt="Foto del puesto" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <div class="puesto-detail">
+        <div class="puesto-contact-hint">📞 Pulsa para contactar</div>
+        <div class="contact-btns">
+          <a href="tel:968247469" class="btn-call">📞 968 247 469</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DULCE / SALADO -->
+  <div class="categoria-group" id="cat-dulce">
+    <div class="cat-header">
+      <span class="cat-icon">🍰</span>
+      <span class="cat-name">Dulce / Salado</span>
+    </div>
+
+    <div class="puesto-card" onclick="togglePuesto(this)">
+      <div class="puesto-card-header">
+        <div>
+          <div class="puesto-name">Frutos Secos Rueda</div>
+          <div class="puesto-location">📍 Planta Baja</div>
+        </div>
+        <span class="puesto-expand-icon">⌄</span>
+      </div>
+      <div class="puesto-img-zone">
+        <img src="/images/puestos/rueda.jpg" alt="Foto del puesto" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <div class="puesto-detail">
+        <div class="puesto-contact-hint">📞 Pulsa para contactar</div>
+        <div class="contact-btns">
+          <a href="tel:968242692" class="btn-call">📞 968 242 692</a>
+          <a href="tel:649134494" class="btn-call">📞 649 134 494</a>
+          <a href="https://wa.me/34649134494" class="btn-whatsapp" target="_blank">💬 WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="puesto-card" onclick="togglePuesto(this)">
+      <div class="puesto-card-header">
+        <div>
+          <div class="puesto-name">Aceitunas y Encurtidos Zambudio</div>
+          <div class="puesto-location">📍 Planta Baja</div>
+        </div>
+        <span class="puesto-expand-icon">⌄</span>
+      </div>
+      <div class="puesto-img-zone">
+        <img src="/images/puestos/zambudio.jpg" alt="Foto del puesto" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <div class="puesto-detail">
+        <div class="puesto-contact-hint">📞 Pulsa para contactar</div>
+        <div class="contact-btns">
+          <a href="tel:669375317" class="btn-call">📞 669 375 317</a>
+          <a href="https://wa.me/34669375317" class="btn-whatsapp" target="_blank">💬 WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="puesto-card" onclick="togglePuesto(this)">
+      <div class="puesto-card-header">
+        <div>
+          <div class="puesto-name">Panadería Encarna</div>
+          <div class="puesto-location">📍 Planta Baja</div>
+        </div>
+        <span class="puesto-expand-icon">⌄</span>
+      </div>
+      <div class="puesto-img-zone">
+        <img src="/images/puestos/encarna.jpg" alt="Foto del puesto" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <div class="puesto-detail">
+        <div class="puesto-contact-hint">📞 Pulsa para contactar</div>
+        <div class="contact-btns">
+          <a href="tel:968231646" class="btn-call">📞 968 231 646</a>
+          <a href="tel:968811305" class="btn-call">📞 968 811 305</a>
+          <a href="tel:968297873" class="btn-call">📞 968 297 873</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="puesto-card" onclick="togglePuesto(this)">
+      <div class="puesto-card-header">
+        <div>
+          <div class="puesto-name">Autoservicio Saavedra Fajardo</div>
+          <div class="puesto-location">📍 1ª Planta</div>
+        </div>
+        <span class="puesto-expand-icon">⌄</span>
+      </div>
+      <div class="puesto-img-zone">
+        <img src="/images/puestos/autoservicio.jpg" alt="Foto del puesto" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <div class="puesto-detail">
+        <div class="puesto-contact-hint">📞 Pulsa para contactar</div>
+        <div class="contact-btns">
+          <a href="tel:968200036" class="btn-call">📞 968 200 036</a>
+          <a href="tel:607627346" class="btn-call">📞 607 62 73 46</a>
+          <a href="https://wa.me/34607627346" class="btn-whatsapp" target="_blank">💬 WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CANTINA -->
+  <div class="categoria-group" id="cat-cantina">
+    <div class="cat-header">
+      <span class="cat-icon">☕</span>
+      <span class="cat-name">Cantina / Bar</span>
+    </div>
+
+    <div class="puesto-card" onclick="togglePuesto(this)">
+      <div class="puesto-card-header">
+        <div>
+          <div class="puesto-name">Rincón de Paco</div>
+          <div class="puesto-location">📍 Planta Baja</div>
+        </div>
+        <span class="puesto-expand-icon">⌄</span>
+      </div>
+      <div class="puesto-img-zone">
+        <img src="/images/puestos/rincon-paco.jpg" alt="Foto del puesto" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <div class="puesto-detail">
+        <div class="puesto-contact-hint">📞 Pulsa para contactar</div>
+        <div class="contact-btns">
+          <a href="tel:666333426" class="btn-call">📞 666 333 426</a>
+          <a href="https://wa.me/34666333426" class="btn-whatsapp" target="_blank">💬 WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERÍA -->
+<section class="galeria-section fade-in" id="galeria">
+  <span class="section-label">Galería</span>
+  <h2 class="section-title">El mercado en <em>imágenes</em></h2>
+
+  <div class="galeria-filters">
+    <button class="gal-filter active" data-filter="all">Todos</button>
+    <button class="gal-filter" data-filter="pescaderia">🐟 Pescadería</button>
+    <button class="gal-filter" data-filter="carniceria">🥩 Carnicería</button>
+    <button class="gal-filter" data-filter="charcuteria">🧀 Charcutería</button>
+    <button class="gal-filter" data-filter="fruteria">🍎 Frutería</button>
+    <button class="gal-filter" data-filter="dulce">🍰 Dulce</button>
+    <button class="gal-filter" data-filter="supermercado">🛒 Super</button>
+    <button class="gal-filter" data-filter="cantina">☕ Cantina</button>
+  </div>
+
+  <div class="galeria-grid" id="galeriaGrid">
+
+  <!-- PESCADERÍA -->
+  <div class="gal-item" data-cat="pescaderia" onclick="openLightbox(this)">
+    <img src="/images/gallery/pescaderia-1.jpg" alt="Pescadería 1">
+    <div class="gal-item-overlay"><span class="gal-item-label">Pescadería</span></div>
+  </div>
+
+  <div class="gal-item" data-cat="pescaderia" onclick="openLightbox(this)">
+    <img src="/images/gallery/pescaderia-2.jpg" alt="Pescadería 2">
+    <div class="gal-item-overlay"><span class="gal-item-label">Pescadería</span></div>
+  </div>
+
+  <div class="gal-item" data-cat="pescaderia" onclick="openLightbox(this)">
+    <img src="/images/gallery/pescaderia-3.jpg" alt="Pescadería 3">
+    <div class="gal-item-overlay"><span class="gal-item-label">Pescadería</span></div>
+  </div>
+
+  <div class="gal-item" data-cat="pescaderia" onclick="openLightbox(this)">
+    <img src="/images/gallery/pescaderia-4.jpg" alt="Pescadería 4">
+    <div class="gal-item-overlay"><span class="gal-item-label">Pescadería</span></div>
+  </div>
+
+
+  <!-- CARNICERÍA -->
+  <div class="gal-item" data-cat="carniceria" onclick="openLightbox(this)">
+    <img src="/images/gallery/carniceria-1.jpg" alt="Carnicería 1">
+    <div class="gal-item-overlay"><span class="gal-item-label">Carnicería</span></div>
+  </div>
+
+  <div class="gal-item" data-cat="carniceria" onclick="openLightbox(this)">
+    <img src="/images/gallery/carniceria-2.jpg" alt="Carnicería 2">
+    <div class="gal-item-overlay"><span class="gal-item-label">Carnicería</span></div>
+  </div>
+
+  <div class="gal-item" data-cat="carniceria" onclick="openLightbox(this)">
+    <img src="/images/gallery/carniceria-3.jpg" alt="Carnicería 3">
+    <div class="gal-item-overlay"><span class="gal-item-label">Carnicería</span></div>
+  </div>
+
+  <div class="gal-item" data-cat="carniceria" onclick="openLightbox(this)">
+    <img src="/images/gallery/carniceria-4.jpg" alt="Carnicería 4">
+    <div class="gal-item-overlay"><span class="gal-item-label">Carnicería</span></div>
+  </div>
+
+
+  <!-- CHARCUTERÍA -->
+  <div class="gal-item" data-cat="charcuteria" onclick="openLightbox(this)">
+    <img src="/images/gallery/charcuteria-1.jpg" alt="Charcutería 1">
+    <div class="gal-item-overlay"><span class="gal-item-label">Charcutería</span></div>
+  </div>
+
+  <div class="gal-item" data-cat="charcuteria" onclick="openLightbox(this)">
+    <img src="/images/gallery/charcuteria-2.jpg" alt="Charcutería 2">
+    <div class="gal-item-overlay"><span class="gal-item-label">Charcutería</span></div>
+  </div>
+
+  <div class="gal-item" data-cat="charcuteria" onclick="openLightbox(this)">
+    <img src="/images/gallery/charcuteria-3.jpg" alt="Charcutería 3">
+    <div class="gal-item-overlay"><span class="gal-item-label">Charcutería</span></div>
+  </div>
+
+
+  <!-- FRUTERÍA -->
+  <div class="gal-item" data-cat="fruteria" onclick="openLightbox(this)">
+    <img src="/images/gallery/fruteria-1.jpg" alt="Frutería 1">
+    <div class="gal-item-overlay"><span class="gal-item-label">Frutería</span></div>
+  </div>
+
+  <div class="gal-item" data-cat="fruteria" onclick="openLightbox(this)">
+    <img src="/images/gallery/fruteria-2.jpg" alt="Frutería 2">
+    <div class="gal-item-overlay"><span class="gal-item-label">Frutería</span></div>
+  </div>
+
+
+  <!-- DULCE -->
+  <div class="gal-item" data-cat="dulce" onclick="openLightbox(this)">
+    <img src="/images/gallery/dulce-1.jpg" alt="Dulce 1">
+    <div class="gal-item-overlay"><span class="gal-item-label">Dulce / Salado</span></div>
+  </div>
+
+  <div class="gal-item" data-cat="dulce" onclick="openLightbox(this)">
+    <img src="/images/gallery/dulce-2.jpg" alt="Dulce 2">
+    <div class="gal-item-overlay"><span class="gal-item-label">Dulce / Salado</span></div>
+  </div>
+
+  <div class="gal-item" data-cat="dulce" onclick="openLightbox(this)">
+    <img src="/images/gallery/dulce-3.jpg" alt="Dulce 3">
+    <div class="gal-item-overlay"><span class="gal-item-label">Dulce / Salado</span></div>
+  </div>
+
+
+  <!-- SUPERMERCADO -->
+  <div class="gal-item" data-cat="supermercado" onclick="openLightbox(this)">
+    <img src="/images/gallery/supermercado-1.jpg" alt="Supermercado">
+    <div class="gal-item-overlay"><span class="gal-item-label">Supermercado</span></div>
+  </div>
+
+
+  <!-- CANTINA -->
+  <div class="gal-item" data-cat="cantina" onclick="openLightbox(this)">
+    <img src="/images/gallery/cantina-1.jpg" alt="Cantina">
+    <div class="gal-item-overlay"><span class="gal-item-label">Cantina</span></div>
+  </div>
+
+</div>
+</section>
+
+<!-- UBICACIÓN -->
+<section class="ubicacion-section fade-in" id="ubicacion">
+  <span class="section-label">Encuéntranos</span>
+  <h2 class="section-title">Estamos en <em>Murcia</em></h2>
+  <p class="section-body">Mercado Saavedra Fajardo, en el corazón de Murcia. Ven a visitarnos de lunes a sábado de 8:00 a 15:00.</p>
+  <div class="map-container">
+    <iframe
+      src="https://maps.google.com/maps?q=Mercado+Saavedra+Fajardo+Murcia&output=embed&z=16"
+      allowfullscreen
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+  <a href="https://maps.app.goo.gl/rUzghPJBgnKTP8U97" target="_blank" class="map-cta">
+    📍 Abrir en Google Maps
+  </a>
+</section>
+
+<!-- REDES SOCIALES -->
+<section class="redes-section fade-in" id="redes">
+  <span class="section-label">Síguenos</span>
+  <h2 class="section-title">Únete a nuestra <em>comunidad</em></h2>
+  <p class="section-body">Recetas, novedades y lo mejor del mercado, cada día en nuestras redes.</p>
+  <div class="redes-btns">
+    <a href="https://www.instagram.com/mercado_saavedra_fajardo/" target="_blank" class="btn-red btn-instagram">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      Instagram
+    </a>
+    <a href="https://www.facebook.com/mercasaavedrafajardo/?locale=es_ES" target="_blank" class="btn-red btn-facebook">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      Facebook
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="logo-footer">Mercado Saavedra Fajardo</div>
+  <div class="footer-sub">Murcia · España</div>
+  <div class="footer-divider"></div>
+  <div class="footer-horario">Lunes – Sábado · 8:00 – 15:00</div>
+  <div class="footer-copy">© 2025 Mercado Saavedra Fajardo · Todos los derechos reservados</div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img id="lightboxImg" class="lightbox-img" src="" alt="">
+  <span class="lightbox-caption" id="lightboxCaption"></span>
+</div>
+
+<script>
+// Subida de fotos deshabilitada — imágenes cargadas directamente desde /images/
+
+// ===== CATEGORIA TABS =====
+document.querySelectorAll('.cat-tab').forEach(tab => {
+  tab.addEventListener('click', function() {
+    document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.categoria-group').forEach(g => g.classList.remove('active'));
+    this.classList.add('active');
+    document.getElementById('cat-' + this.dataset.cat).classList.add('active');
+  });
+});
+
+// ===== PUESTO TOGGLE =====
+function togglePuesto(card) {
+  const wasExpanded = card.classList.contains('expanded');
+  document.querySelectorAll('.puesto-card.expanded').forEach(c => c.classList.remove('expanded'));
+  if (!wasExpanded) card.classList.add('expanded');
+}
+
+// ===== GALERÍA FILTERS =====
+document.querySelectorAll('.gal-filter').forEach(btn => {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.gal-filter').forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+    const filter = this.dataset.filter;
+    document.querySelectorAll('.gal-item').forEach(item => {
+      if (filter === 'all' || item.dataset.cat === filter) {
+        item.classList.remove('hidden');
+      } else {
+        item.classList.add('hidden');
+      }
+    });
+  });
+});
+
+// Subida de fotos en galería deshabilitada — usar imágenes estáticas en /images/gallery/
+
+// ===== LIGHTBOX =====
+function openLightbox(item) {
+  const img = item.querySelector('img');
+  const lb = document.getElementById('lightbox');
+  if (img && img.src) {
+    document.getElementById('lightboxImg').src = img.src;
+    document.getElementById('lightboxCaption').textContent = item.dataset.cat;
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+// ===== SCROLL FADE-IN =====
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
